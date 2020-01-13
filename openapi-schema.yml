@@ -1,0 +1,1241 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /api/books/:
+    get:
+      operationId: listBooks
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    id:
+                      type: integer
+                      readOnly: true
+                    name:
+                      type: string
+                      maxLength: 50
+                    price:
+                      type: integer
+                    author:
+                      type: string
+                      maxLength: 50
+                    publisher:
+                      type: string
+                      maxLength: 50
+                  required:
+                  - name
+                  - author
+                  - publisher
+          description: ''
+    post:
+      operationId: CreateBook
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema: &id001
+              properties:
+                name:
+                  type: string
+                  maxLength: 50
+                price:
+                  type: integer
+                author:
+                  type: string
+                  maxLength: 50
+                publisher:
+                  type: string
+                  maxLength: 50
+              required:
+              - name
+              - author
+              - publisher
+          application/x-www-form-urlencoded:
+            schema: *id001
+          multipart/form-data:
+            schema: *id001
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  name:
+                    type: string
+                    maxLength: 50
+                  price:
+                    type: integer
+                  author:
+                    type: string
+                    maxLength: 50
+                  publisher:
+                    type: string
+                    maxLength: 50
+                required:
+                - name
+                - author
+                - publisher
+          description: ''
+  /api/books{format}:
+    get:
+      operationId: RetrieveBook
+      description: ''
+      parameters:
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  name:
+                    type: string
+                    maxLength: 50
+                  price:
+                    type: integer
+                  author:
+                    type: string
+                    maxLength: 50
+                  publisher:
+                    type: string
+                    maxLength: 50
+                required:
+                - name
+                - author
+                - publisher
+          description: ''
+    post:
+      operationId: CreateBook
+      description: ''
+      parameters:
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema: &id002
+              properties:
+                name:
+                  type: string
+                  maxLength: 50
+                price:
+                  type: integer
+                author:
+                  type: string
+                  maxLength: 50
+                publisher:
+                  type: string
+                  maxLength: 50
+              required:
+              - name
+              - author
+              - publisher
+          application/x-www-form-urlencoded:
+            schema: *id002
+          multipart/form-data:
+            schema: *id002
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  name:
+                    type: string
+                    maxLength: 50
+                  price:
+                    type: integer
+                  author:
+                    type: string
+                    maxLength: 50
+                  publisher:
+                    type: string
+                    maxLength: 50
+                required:
+                - name
+                - author
+                - publisher
+          description: ''
+  /api/books/{id}/:
+    get:
+      operationId: RetrieveBook
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this book.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  name:
+                    type: string
+                    maxLength: 50
+                  price:
+                    type: integer
+                  author:
+                    type: string
+                    maxLength: 50
+                  publisher:
+                    type: string
+                    maxLength: 50
+                required:
+                - name
+                - author
+                - publisher
+          description: ''
+    put:
+      operationId: UpdateBook
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this book.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema: &id003
+              properties:
+                name:
+                  type: string
+                  maxLength: 50
+                price:
+                  type: integer
+                author:
+                  type: string
+                  maxLength: 50
+                publisher:
+                  type: string
+                  maxLength: 50
+              required:
+              - name
+              - author
+              - publisher
+          application/x-www-form-urlencoded:
+            schema: *id003
+          multipart/form-data:
+            schema: *id003
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  name:
+                    type: string
+                    maxLength: 50
+                  price:
+                    type: integer
+                  author:
+                    type: string
+                    maxLength: 50
+                  publisher:
+                    type: string
+                    maxLength: 50
+                required:
+                - name
+                - author
+                - publisher
+          description: ''
+    patch:
+      operationId: PartialUpdateBook
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this book.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema: &id004
+              properties:
+                name:
+                  type: string
+                  maxLength: 50
+                price:
+                  type: integer
+                author:
+                  type: string
+                  maxLength: 50
+                publisher:
+                  type: string
+                  maxLength: 50
+          application/x-www-form-urlencoded:
+            schema: *id004
+          multipart/form-data:
+            schema: *id004
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  name:
+                    type: string
+                    maxLength: 50
+                  price:
+                    type: integer
+                  author:
+                    type: string
+                    maxLength: 50
+                  publisher:
+                    type: string
+                    maxLength: 50
+                required:
+                - name
+                - author
+                - publisher
+          description: ''
+    delete:
+      operationId: DestroyBook
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this book.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+  /api/books/{id}{format}:
+    get:
+      operationId: RetrieveBook
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this book.
+        schema:
+          type: string
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  name:
+                    type: string
+                    maxLength: 50
+                  price:
+                    type: integer
+                  author:
+                    type: string
+                    maxLength: 50
+                  publisher:
+                    type: string
+                    maxLength: 50
+                required:
+                - name
+                - author
+                - publisher
+          description: ''
+    put:
+      operationId: UpdateBook
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this book.
+        schema:
+          type: string
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema: &id005
+              properties:
+                name:
+                  type: string
+                  maxLength: 50
+                price:
+                  type: integer
+                author:
+                  type: string
+                  maxLength: 50
+                publisher:
+                  type: string
+                  maxLength: 50
+              required:
+              - name
+              - author
+              - publisher
+          application/x-www-form-urlencoded:
+            schema: *id005
+          multipart/form-data:
+            schema: *id005
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  name:
+                    type: string
+                    maxLength: 50
+                  price:
+                    type: integer
+                  author:
+                    type: string
+                    maxLength: 50
+                  publisher:
+                    type: string
+                    maxLength: 50
+                required:
+                - name
+                - author
+                - publisher
+          description: ''
+    patch:
+      operationId: PartialUpdateBook
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this book.
+        schema:
+          type: string
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema: &id006
+              properties:
+                name:
+                  type: string
+                  maxLength: 50
+                price:
+                  type: integer
+                author:
+                  type: string
+                  maxLength: 50
+                publisher:
+                  type: string
+                  maxLength: 50
+          application/x-www-form-urlencoded:
+            schema: *id006
+          multipart/form-data:
+            schema: *id006
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  name:
+                    type: string
+                    maxLength: 50
+                  price:
+                    type: integer
+                  author:
+                    type: string
+                    maxLength: 50
+                  publisher:
+                    type: string
+                    maxLength: 50
+                required:
+                - name
+                - author
+                - publisher
+          description: ''
+    delete:
+      operationId: DestroyBook
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this book.
+        schema:
+          type: string
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+  /api/books/{id}/stocks/:
+    get:
+      operationId: listStocks
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this stock.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    id:
+                      type: integer
+                      readOnly: true
+                    in_stock:
+                      type: integer
+                    quantity:
+                      type: integer
+                  required:
+                  - in_stock
+                  - quantity
+          description: ''
+    post:
+      operationId: CreateStock
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this stock.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema: &id007
+              properties:
+                in_stock:
+                  type: integer
+                quantity:
+                  type: integer
+              required:
+              - in_stock
+              - quantity
+          application/x-www-form-urlencoded:
+            schema: *id007
+          multipart/form-data:
+            schema: *id007
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  in_stock:
+                    type: integer
+                  quantity:
+                    type: integer
+                required:
+                - in_stock
+                - quantity
+          description: ''
+  /api/books/{id}/stocks{format}:
+    get:
+      operationId: RetrieveStock
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this stock.
+        schema:
+          type: string
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  in_stock:
+                    type: integer
+                  quantity:
+                    type: integer
+                required:
+                - in_stock
+                - quantity
+          description: ''
+    post:
+      operationId: CreateStock
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this stock.
+        schema:
+          type: string
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema: &id008
+              properties:
+                in_stock:
+                  type: integer
+                quantity:
+                  type: integer
+              required:
+              - in_stock
+              - quantity
+          application/x-www-form-urlencoded:
+            schema: *id008
+          multipart/form-data:
+            schema: *id008
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  in_stock:
+                    type: integer
+                  quantity:
+                    type: integer
+                required:
+                - in_stock
+                - quantity
+          description: ''
+  /api/books/{id}/stocks/{stock_pk}/:
+    get:
+      operationId: RetrieveStock
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this stock.
+        schema:
+          type: string
+      - name: stock_pk
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  in_stock:
+                    type: integer
+                  quantity:
+                    type: integer
+                required:
+                - in_stock
+                - quantity
+          description: ''
+    put:
+      operationId: UpdateStock
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this stock.
+        schema:
+          type: string
+      - name: stock_pk
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema: &id009
+              properties:
+                in_stock:
+                  type: integer
+                quantity:
+                  type: integer
+              required:
+              - in_stock
+              - quantity
+          application/x-www-form-urlencoded:
+            schema: *id009
+          multipart/form-data:
+            schema: *id009
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  in_stock:
+                    type: integer
+                  quantity:
+                    type: integer
+                required:
+                - in_stock
+                - quantity
+          description: ''
+    patch:
+      operationId: PartialUpdateStock
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this stock.
+        schema:
+          type: string
+      - name: stock_pk
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema: &id010
+              properties:
+                in_stock:
+                  type: integer
+                quantity:
+                  type: integer
+          application/x-www-form-urlencoded:
+            schema: *id010
+          multipart/form-data:
+            schema: *id010
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  in_stock:
+                    type: integer
+                  quantity:
+                    type: integer
+                required:
+                - in_stock
+                - quantity
+          description: ''
+    delete:
+      operationId: DestroyStock
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this stock.
+        schema:
+          type: string
+      - name: stock_pk
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+  /api/books/{id}/stocks/{stock_pk}{format}:
+    get:
+      operationId: RetrieveStock
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this stock.
+        schema:
+          type: string
+      - name: stock_pk
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  in_stock:
+                    type: integer
+                  quantity:
+                    type: integer
+                required:
+                - in_stock
+                - quantity
+          description: ''
+    put:
+      operationId: UpdateStock
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this stock.
+        schema:
+          type: string
+      - name: stock_pk
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema: &id011
+              properties:
+                in_stock:
+                  type: integer
+                quantity:
+                  type: integer
+              required:
+              - in_stock
+              - quantity
+          application/x-www-form-urlencoded:
+            schema: *id011
+          multipart/form-data:
+            schema: *id011
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  in_stock:
+                    type: integer
+                  quantity:
+                    type: integer
+                required:
+                - in_stock
+                - quantity
+          description: ''
+    patch:
+      operationId: PartialUpdateStock
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this stock.
+        schema:
+          type: string
+      - name: stock_pk
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema: &id012
+              properties:
+                in_stock:
+                  type: integer
+                quantity:
+                  type: integer
+          application/x-www-form-urlencoded:
+            schema: *id012
+          multipart/form-data:
+            schema: *id012
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  in_stock:
+                    type: integer
+                  quantity:
+                    type: integer
+                required:
+                - in_stock
+                - quantity
+          description: ''
+    delete:
+      operationId: DestroyStock
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this stock.
+        schema:
+          type: string
+      - name: stock_pk
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+  /api/books/{id}/rates/:
+    get:
+      operationId: listRatings
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this rating.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    id:
+                      type: integer
+                      readOnly: true
+                    rating:
+                      type: integer
+                    rate_time:
+                      type: string
+                      format: date-time
+                  required:
+                  - rating
+                  - rate_time
+          description: ''
+    post:
+      operationId: CreateRating
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this rating.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema: &id013
+              properties:
+                rating:
+                  type: integer
+                rate_time:
+                  type: string
+                  format: date-time
+              required:
+              - rating
+              - rate_time
+          application/x-www-form-urlencoded:
+            schema: *id013
+          multipart/form-data:
+            schema: *id013
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  rating:
+                    type: integer
+                  rate_time:
+                    type: string
+                    format: date-time
+                required:
+                - rating
+                - rate_time
+          description: ''
+  /api/books/{id}/rates{format}:
+    get:
+      operationId: RetrieveRating
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this rating.
+        schema:
+          type: string
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  rating:
+                    type: integer
+                  rate_time:
+                    type: string
+                    format: date-time
+                required:
+                - rating
+                - rate_time
+          description: ''
+    post:
+      operationId: CreateRating
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this rating.
+        schema:
+          type: string
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema: &id014
+              properties:
+                rating:
+                  type: integer
+                rate_time:
+                  type: string
+                  format: date-time
+              required:
+              - rating
+              - rate_time
+          application/x-www-form-urlencoded:
+            schema: *id014
+          multipart/form-data:
+            schema: *id014
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  rating:
+                    type: integer
+                  rate_time:
+                    type: string
+                    format: date-time
+                required:
+                - rating
+                - rate_time
+          description: ''
+  /api/token/:
+    post:
+      operationId: CreateTokenObtainPair
+      description: 'Takes a set of user credentials and returns an access and refresh
+        JSON web
+
+        token pair to prove the authentication of those credentials.'
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema: &id015
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+                  writeOnly: true
+              required:
+              - username
+              - password
+          application/x-www-form-urlencoded:
+            schema: *id015
+          multipart/form-data:
+            schema: *id015
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  username:
+                    type: string
+                required:
+                - username
+          description: ''
+  /api/token/refresh/:
+    post:
+      operationId: CreateTokenRefresh
+      description: 'Takes a refresh type JSON web token and returns an access type
+        JSON web
+
+        token if the refresh token is valid.'
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema: &id016
+              properties:
+                refresh:
+                  type: string
+              required:
+              - refresh
+          application/x-www-form-urlencoded:
+            schema: *id016
+          multipart/form-data:
+            schema: *id016
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  refresh:
+                    type: string
+                required:
+                - refresh
+          description: ''
