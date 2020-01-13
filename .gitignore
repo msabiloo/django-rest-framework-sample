@@ -1,0 +1,7 @@
+drf/
+.vscode
+db.sqlite3
+bookstore/migrations
+bookstore/__pycache__
+restAPI/__pycache__
+
